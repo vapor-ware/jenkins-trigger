@@ -9,6 +9,7 @@ library identifier: 'vapor@develop', retriever: modernSCM([
 
 golangPipeline([
   'mainBranch': 'main',
+  'image': 'vaporio/jenkins-trigger',
   'publishLatest': false,
   'skipDocker': true,
   'skipSetup': true,
