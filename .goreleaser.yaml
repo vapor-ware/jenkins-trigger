@@ -13,6 +13,7 @@ builds:
   - -X github.com/vapor-ware/jenkins-trigger/version.Version={{ .Version }}
   goos:
   - linux
+  - darwin
   goarch:
   - amd64
   - arm64
@@ -20,6 +21,7 @@ archives:
 - replacements:
     linux: Linux
     amd64: x86_64
+    darwin: Darwin
 release:
   github:
     owner: vapor-ware
