@@ -1,0 +1,39 @@
+project_name: jenkins-trigger
+before:
+  hooks:
+  - go mod download
+builds:
+- env:
+  - CGO_ENABLED=0
+  ldflags:
+  - -w
+  - -X github.com/vapor-ware/jenkins-trigger/version.BuildDate={{ .Date }}
+  - -X github.com/vapor-ware/jenkins-trigger/version.Commit={{ .ShortCommit }}
+  - -X github.com/vapor-ware/jenkins-trigger/version.Tag={{ .Tag }}
+  - -X github.com/vapor-ware/jenkins-trigger/version.Version={{ .Version }}
+  goos:
+  - linux
+  goarch:
+  - amd64
+  - arm64
+archives:
+- replacements:
+    linux: Linux
+    amd64: x86_64
+release:
+  github:
+    owner: vapor-ware
+    name: jenkins-trigger
+  draft: false
+  prerelease: auto
+  name_template: "{{ .Version }}"
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+changelog:
+  sort: asc
+  filters:
+    exclude:
+    - '^docs:'
+    - '^test:'
