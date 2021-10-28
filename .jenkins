@@ -11,7 +11,7 @@ golangPipeline([
   'mainBranch': 'main',
   'image': 'vaporio/jenkins-trigger',
   'publishLatest': false,
-  'skipDocker': true,
+  'skipDocker': false,
   'skipSetup': true,
   'skipLint': true,
   'skipUnitTest': true,
