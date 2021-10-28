@@ -23,6 +23,14 @@ As an example using my username, a fake token, and the vapor-cloud-platform depl
 
 `jenkins-trigger -u lazypower -t 0xD34DB33f build vapor-cloud-ops/job/vapor-cloud-platform`
 
+## Docker
+
+jenkins-trigger is published, wrapped in a `vaporio/foundation` base image for ease of consumption. This makes the binary far more practical to be deployed in one-off cronjob fashion in k8s, or to keep your host operating system pristine.
+
+```
+docker run -e JENKINS_API_USER=example -e JENKINS_API_TOKEN=example vaporio/jenkins-trigger build vapor-cloud-ops/jobs/example-job
+```
+
 ## Getting Help
 
 Try contacting in the #devops slack channel in the VaporIO slack

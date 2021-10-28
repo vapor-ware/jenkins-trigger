@@ -29,6 +29,13 @@ release:
   draft: false
   prerelease: auto
   name_template: "{{ .Version }}"
+dockers:
+- goos: linux
+  goarch: amd64
+  image_templates:
+    - vaporio/jenkins-trigger:{{ .Tag }}
+    - vaporio/jenkins-trigger:{{ .Major }}
+    - vaporio/jenkins-trigger:latest
 checksum:
   name_template: 'checksums.txt'
 snapshot:
