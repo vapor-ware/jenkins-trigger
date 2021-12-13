@@ -1,4 +1,4 @@
-FROM vaporio/foundation
+FROM docker.io/vaporio/foundation
 # Depends on the goreleaser build context
 ADD ./jenkins-trigger /usr/local/bin/jenkins-trigger
 WORKDIR /
